@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Calculator</title>
+  </head>
+  <body>
+    <div id="app">
+        <input type="number" v-model="text" placeholder="number">
+        <br>
+        <input type="number" v-model="text1" placeholder="number">
+        <br>
+        <button @click="tambah()">+</button>
+        <button @click="kurang()">-</button>
+        <button @click="kali()">*</button>
+        <button @click="bagi()">/</button>
+        <br>
+        {{hasil}}
+    </div>
+
+    <script type="module">
+      import {
+        createApp,
+        ref,
+      } from "https://unpkg.com/vue@3/dist/vue.esm-browser.js";
+
+      createApp({
+        data() {
+          return {
+            hasil : ''
+          }
+        },
+        methods : {
+            tambah () {
+                this.hasil = this.text + this.text1;
+            },
+            kali () {
+                this.hasil = this.text * this.text1;
+            },
+            kurang () {
+                this.hasil = this.text - this.text1;
+            },
+            bagi () {
+                this.hasil = this.text / this.text1;
+            }
+        }
+      }).mount("#app");
+    </script>
+  </body>
+</html>
